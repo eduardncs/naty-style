@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Optimization for Google Ads Bot
+User-Agent: AdsBot-Google-Mobile
+User-Agent: AdsBot-Google
+
+Sitemap: https://www.invoicecash.com/sitemap.xml
