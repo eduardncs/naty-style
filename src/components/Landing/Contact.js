@@ -73,7 +73,7 @@ export const Contact = () => {
             setLoading(false);
             return;
         }
-        const [response,error] = await postNMan("send-mail","POST",data);
+        const [response,error] = await postMan("send-mail","POST",data);
         if(error)
         {
             etoast(translateBackendMessage("INTERNAL_ERROR"))
