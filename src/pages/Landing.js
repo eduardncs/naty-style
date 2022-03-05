@@ -1,18 +1,17 @@
 import React, { Suspense } from "react";
-import DemoNavbar from "../components/Navbars/DemoNavbar.js";
-import CardsFooter from "../components/Footers/CardsFooter.js";
 import MainLoader from '../components/MainLoader.js';
-import Header from '../components/Landing/Header';
-import LanguageMenu from '../components/LanguageMenu.js';
-import CookieBanner from '../components/CookieBanner.js';
 import MetaTags from 'react-meta-tags';
-import { intlGlobal } from '../index.js';
+import { intlGlobal } from '../App.js';
+import NavbarMain from '../components/Navbars/NavbarMain';
+import Footer from '../components/Footers/Footer';
+import GoTop from "../components/GoTop.js";
 
-const About = React.lazy(() => import('./../components/Landing/About'));
-const Advantages = React.lazy(() => import('./../components/Landing/Advantages'));
-const Prices = React.lazy(() => import('./../components/Landing/Prices'));
-const Contact = React.lazy(() => import('./../components/Landing/Contact'));
-const SocialMediaLinks = React.lazy(() => import('./../components/Landing/SocialMediaLinks'));
+import About from './../components/Landing/About.js';
+import Contact from "../components/Landing/Contact.js";
+import SocialMediaLinks from "../components/Landing/SocialMediaLinks.js";
+import Header from "../components/Landing/Header.js";
+import Prices from "../components/Landing/Prices.js";
+
 
 const Landing = () => {
     return (
@@ -21,22 +20,22 @@ const Landing = () => {
                 <title>{intlGlobal.formatMessage({id: "landing.title"})}</title>
                 <meta name="description" content={intlGlobal.formatMessage({id: "landing.description"})} />
         </MetaTags>
-        <DemoNavbar landing={true} />
-        <main>
-          <Header />
-          <Suspense fallback={<div>Loading...</div>}>
-              <About />
-              <Advantages />
-              <Prices />
-              <Contact />
-              <SocialMediaLinks />
-          </Suspense>
-        </main>
-        <LanguageMenu />
-        <CookieBanner />
-        <CardsFooter />
+        <div className="app-background landing-page">
+          <NavbarMain />
+          <div className="app-header">
+              <Header />
+          </div>
+          <About />
+          <Prices />
+          <Contact />
+          <SocialMediaLinks />
+          <Footer optClass="footer" />
+          <GoTop />
+        </div>
       </Suspense>
     );
   }
+  
+ 
 
 export default Landing;

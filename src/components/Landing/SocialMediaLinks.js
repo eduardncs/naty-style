@@ -1,5 +1,5 @@
 import React from 'react';
-import { Row, Col, Container } from 'reactstrap';
+import { Row, Col, Container } from 'react-bootstrap';
 import { FormattedMessage } from 'react-intl';
 import facebook from '../../assets/img/social/facebook.png';
 import instagram from '../../assets/img/social/instagram.png';
@@ -8,7 +8,7 @@ import environments from '../../environments/environments';
 export const SocialMediaLinks = () => {
 
     return(
-<section className="section p-0 m-0">
+<section className="section-lg p-0 m-0">
           <Container>
             <Row className="row-grid justify-content-center">
               <Col className="text-center" lg="8">

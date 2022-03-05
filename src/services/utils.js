@@ -1,7 +1,7 @@
 import Swal from 'sweetalert2';
 import axios from 'axios';
 import environments from '../environments/environments';
-import { intlGlobal } from '../index.js';
+import { intlGlobal } from '../App.js';
 
 /**
  * Get user prefered locale

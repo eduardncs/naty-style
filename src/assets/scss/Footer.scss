@@ -1,0 +1,24 @@
+.footer{
+  margin-top: 130px;
+  padding-top: 150px;
+  background-image: url("../img/background-gradient.PNG");
+  background-size: cover;
+  background-position: center center;
+}
+.footer li a, .footer li, .footer p {
+  color: rgba(255,255,255,0.7);
+  margin: 5px 0;
+  text-decoration: none;
+}
+.icon-circle{
+    border: 1px solid white;
+    border-width: 1px;
+    border-radius: 30px !important;
+    opacity: 0.79;
+    padding: 9px 18px;
+    font-size: 18px;
+}
+.icon-round{
+  padding: 9px 11px;
+  margin-right: 10px;
+}
