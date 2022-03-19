@@ -11,7 +11,7 @@ const NavbarMain = () => {
         <Container className="px-4">
           <Navbar.Brand className="text-brand">
             <HashLink to="/">
-              <img src={logo} width="300px" height="120px" alt="logo" />
+              <img src={logo} width="270px" height="120px" alt="logo" />
             </HashLink>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />

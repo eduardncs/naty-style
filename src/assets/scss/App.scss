@@ -550,3 +550,25 @@ html::-webkit-scrollbar-thumb {
     border: 1px solid #4F5255;
   }
 }
+
+.navbar-collapse.collapsing{
+  background-color: rgb(1, 43, 69);
+  .ms-auto.navbar-nav{
+    padding: 25px;
+  }
+  .btn.btn-outline-semi-light.btn-sm.pr-4.pl-4{
+    margin-top: 1rem !important;
+  }
+}
+
+.navbar-collapse.collapse.show{
+  position: relative;
+  width: 100%;
+  background-color: rgb(1, 43, 69);
+  .ms-auto.navbar-nav{
+    padding: 25px;
+  }
+  .btn.btn-outline-semi-light.btn-sm.pr-4.pl-4{
+    margin-top: 1rem !important;
+  }
+}

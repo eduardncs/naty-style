@@ -58,9 +58,6 @@ export const eraseCookie = (name) => {
  */
 export const postMan = async (func, method='GET', data = {}, language_code=true) =>{
     try{
-
-        console.log(func);
-        console.log(method);
         if(data && language_code)
         {
             if(data.data)
