@@ -1,35 +1,15 @@
-import React, { useState, useEffect } from 'react';
-import CardsFooter from '../components/Footers/CardsFooter';
-import DemoNavbar from '../components/Navbars/DemoNavbar';
-import { postMan } from '../services/utils';
-import { Container, Row, Col } from 'reactstrap';
-import MainLoader from '../components/MainLoader';
+import React from 'react';
+import { Container, Row, Col } from 'react-bootstrap';
 import LanguageMenu from '../components/LanguageMenu';
 import CookieBanner from '../components/CookieBanner';
+import Footer from '../components/Footers/Footer';
 
 export const CookiePolicy = () => {
-    const [cookie, setCookie] = useState([]);
-    useEffect(
-        () => {
-            const getData = async () => {
-                const [dataCookie, errorCookie] = await postMan("get_content","POST", { data: {url:"cookies"} });
-                if(errorCookie)
-                  return;
-                setCookie(dataCookie.data.result);
-              }
-              getData();
-        }, []
-    )
-
     return(
-        !cookie ? 
-        <MainLoader />
-        :
         <>
-            <DemoNavbar />
             <main className='mt-5 pt-5 legal-page'>
                 <Container>
-                    <h1 className='text-center'>{cookie.description}</h1>
+                    <h1 className='text-center'>Cookie Policy</h1>
                     <Row>
                         <Col md="12">
                             <div className='text-justify'>
@@ -99,7 +79,7 @@ Cum utilizăm modulele cookie</h2>
             </main>
             <LanguageMenu />
             <CookieBanner />
-            <CardsFooter />
+            <Footer />
         </>
     )
 }

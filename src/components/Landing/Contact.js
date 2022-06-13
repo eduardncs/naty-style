@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { Container, Row, Col, InputGroup, InputGroupAddon, InputGroupText, Card, CardBody, FormGroup, Input, Button } from 'reactstrap'; 
+import { Container, Row, Col, InputGroup, Card, Form, Button } from 'react-bootstrap'; 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser, faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons';
 import HCaptcha from '@hcaptcha/react-hcaptcha';
@@ -73,7 +73,7 @@ export const Contact = () => {
             setLoading(false);
             return;
         }
-        const [response,error] = await postNMan("send-mail","POST",data);
+        const [response,error] = await postMan("send-mail","POST",data);
         if(error)
         {
             etoast(translateBackendMessage("INTERNAL_ERROR"))
@@ -100,7 +100,7 @@ export const Contact = () => {
 
     return(
         <React.Fragment>
-            <section className="section section-lg bg-gradient-default">
+            <section className="section section-lg bg-gradient-default background">
                 <Container className="pt-lg pb-300">
                 <Row className="text-center justify-content-center">
                     <Col lg="10">
@@ -142,142 +142,122 @@ export const Contact = () => {
                     </Col>
                 </Row>
                 </Container>
-                {/* SVG separator */}
-                <div className="separator separator-bottom separator-skew zindex-100">
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    preserveAspectRatio="none"
-                    version="1.1"
-                    viewBox="0 0 2560 100"
-                    x="0"
-                    y="0"
-                >
-                    <polygon
-                    className="fill-white"
-                    points="2560 0 2560 100 0 100"
-                    />
-                </svg>
-                </div>
             </section>
-            <section className="section section-lg pt-lg-0 section-contact-us" id="contact">
+            <section className="section section-lg section-contact-us mb-0 bg-white" id="contact">
                 <Container>
-                <Row className="justify-content-center mt--300">
-                    <Col lg="8">
-                    <Card className="bg-gradient-secondary shadow">
-                        <CardBody className="p-lg-5">
-                        <h4 className="mb-1 text-center"> <FormattedMessage id="contact.form.header" /></h4>
-                        <p className="mt-0 text-center"> <FormattedMessage id="contact.form.header-lead" /></p>
-                        <FormGroup
-                            className={errorName ? `mt-5 has-danger` : `mt-5`  }
-                        >
-                            <InputGroup className="input-group-alternative">
-                            <InputGroupAddon addonType="prepend">
-                                <InputGroupText>
-                                    <FontAwesomeIcon icon={faUser} />
-                                </InputGroupText>
-                            </InputGroupAddon>
-                            <Input
-                                placeholder={intl.formatMessage({id: 'contact.form.name'})}
-                                type="text"
-                                innerRef={nameRef}
-                                onChange={(event) => makeValid(event)}
-                            />
-                            </InputGroup>
-                        </FormGroup>
-                        <FormGroup className={errorPhone ? `has-danger` : ``  }>
-                            <InputGroup className="input-group-alternative">
-                            <InputGroupAddon addonType="prepend">
-                                <InputGroupText>
-                                    <FontAwesomeIcon icon={faPhone} />
-                                </InputGroupText>
-                            </InputGroupAddon>
-                            <Input
-                                name="phone_number"
-                                placeholder={intl.formatMessage({id: 'contact.form.phone'})}
-                                type="text"
-                                onChange={(event) => makeValid(event)}
-                                innerRef={phoneRef}
-                            />
-                            </InputGroup>
-                        </FormGroup>
-                        <FormGroup className={errorEmail ? `has-danger` : ``  }>
-                            <InputGroup className="input-group-alternative">
-                            <InputGroupAddon addonType="prepend">
-                                <InputGroupText>
-                                    <FontAwesomeIcon icon={faEnvelope} />
-                                </InputGroupText>
-                            </InputGroupAddon>
-                            <Input
-                                placeholder={intl.formatMessage({id: 'contact.form.email'})}
-                                type="email"
-                                onChange={(event) => makeValid(event)}
-                                innerRef={emailRef}
-                            />
-                            </InputGroup>
-                        </FormGroup>
-                        <FormGroup className={errorMessage ? `mb-4 has-danger` : `mb-4`  }>
-                            <Input
-                            className="form-control-alternative"
-                            cols="80"
-                            name="name"
-                            placeholder={intl.formatMessage({id: 'contact.form.message'})}
-                            rows="4"
-                            type="textarea"
-                            innerRef={messageRef}
-                            onChange={(event) => makeValid(event)}
-                            />
-                        </FormGroup>
-                        {
-                            environments.hCaptchaRequired ? 
-                            <FormGroup className={errorCaptcha ? `has-danger` : ``}>
-                                <HCaptcha
-                                    ref={captchaRef}
-                                    sitekey={environments.hCaptchaSiteKey}
-                                    onVerify={(token,ekey) => handleVerificationSuccess(token, ekey)}
-                                    languageOverride={getLocale()}
-                                />
+                    <Row className="justify-content-center mt--300">
+                        <Col lg="6">
+                            <Card className="bg-gradient-secondary shadow">
+                                <Card.Body className="p-lg-5">
+                                <h4 className="mb-1 text-center"> <FormattedMessage id="contact.form.header" /></h4>
+                                <p className="mt-0 text-center"> <FormattedMessage id="contact.form.header-lead" /></p>
+                                <Form.Group
+                                    className={errorName ? `mt-5 has-danger mb-3` : `mt-5 mb-3`  }
+                                >
+                                    <InputGroup className="input-group-alternative">
+                                        <InputGroup.Text className="bg-white">
+                                            <FontAwesomeIcon icon={faUser} />
+                                        </InputGroup.Text>
+                                        <Form.Control
+                                            placeholder={intl.formatMessage({id: 'contact.form.name'})}
+                                            type="text"
+                                            ref={nameRef}
+                                            isInvalid={errorName}
+                                            onChange={(event) => makeValid(event)}
+                                        />
+                                    </InputGroup>
+                                </Form.Group>
+                                <Form.Group className={errorPhone ? `has-danger mb-3` : `mb-3`  }>
+                                    <InputGroup className="input-group-alternative">
+                                        <InputGroup.Text className="bg-white">
+                                            <FontAwesomeIcon icon={faPhone} />
+                                        </InputGroup.Text>
+                                        <Form.Control
+                                            name="phone_number"
+                                            placeholder={intl.formatMessage({id: 'contact.form.phone'})}
+                                            type="text"
+                                            isInvalid={errorPhone}
+                                            onChange={(event) => makeValid(event)}
+                                            ref={phoneRef}
+                                        />
+                                    </InputGroup>
+                                </Form.Group>
+                                <Form.Group className={errorEmail ? `has-danger mb-3` : `mb-3`  }>
+                                    <InputGroup className="input-group-alternative">
+                                        <InputGroup.Text className="bg-white">
+                                            <FontAwesomeIcon icon={faEnvelope} />
+                                        </InputGroup.Text>
+                                        <Form.Control
+                                            placeholder={intl.formatMessage({id: 'contact.form.email'})}
+                                            type="email"
+                                            isInvalid={errorEmail}
+                                            onChange={(event) => makeValid(event)}
+                                            ref={emailRef}
+                                        />
+                                    </InputGroup>
+                                </Form.Group>
+                                <Form.Group className={errorMessage ? `mb-3 has-danger` : `mb-3`}>
+                                    <Form.Control
+                                        placeholder={intl.formatMessage({id: 'contact.form.message'})}
+                                        rows={4}
+                                        as="textarea"
+                                        ref={messageRef}
+                                        isInvalid={errorMessage}
+                                        onChange={(event) => makeValid(event)}
+                                        style={{minHeight:"150px"}}
+                                    />
+                                </Form.Group>
                                 {
-                                    errorCaptcha ? 
-                                    <p className='text-danger'>
-                                        <FormattedMessage id="error.captcha" />
-                                    </p>
-                                    :
-                                    <></>
+                                    environments.hCaptchaRequired ? 
+                                    <Form.Group className={errorCaptcha ? `has-danger` : ``}>
+                                        <HCaptcha
+                                            ref={captchaRef}
+                                            sitekey={environments.hCaptchaSiteKey}
+                                            onVerify={(token,ekey) => handleVerificationSuccess(token, ekey)}
+                                            languageOverride={getLocale()}
+                                        />
+                                        {
+                                            errorCaptcha ? 
+                                            <p className='text-danger'>
+                                                <FormattedMessage id="error.captcha" />
+                                            </p>
+                                            :
+                                            <></>
+                                        }
+                                    </Form.Group>
+                                    : <></>
                                 }
-                            </FormGroup>
-                            : <></>
-                        }
-                        <div>
-                            {
-                            loading ? 
-                            <Button
-                                block
-                                className="btn-round"
-                                color="default"
-                                size="lg"
-                                type="button"
-                                disabled
-                            >
-                            <FormattedMessage id="loading" />
-                            </Button>
-                            :
-                            <Button
-                                block
-                                className="btn-round"
-                                color="default"
-                                size="lg"
-                                type="button"
-                                onClick={() => sendMessage()}
-                            >
-                            <FormattedMessage id="contact.form.send-message" />
-                            </Button>
-                            }
-                            
-                        </div>
-                        </CardBody>
-                    </Card>
-                    </Col>
-                </Row>
+                                <div className="text-end">
+                                    {
+                                    loading ? 
+                                    <Button
+                                        block
+                                        className="btn-round"
+                                        color="default"
+                                        size="lg"
+                                        type="button"
+                                        disabled
+                                    >
+                                    <FormattedMessage id="loading" />
+                                    </Button>
+                                    :
+                                    <Button
+                                        block
+                                        className="btn-round"
+                                        color="default"
+                                        size="lg"
+                                        type="button"
+                                        onClick={() => sendMessage()}
+                                    >
+                                    <FormattedMessage id="contact.form.send-message" />
+                                    </Button>
+                                    }
+                                    
+                                </div>
+                                </Card.Body>
+                            </Card>
+                        </Col>
+                    </Row>
                 </Container>
             </section>
         </React.Fragment>

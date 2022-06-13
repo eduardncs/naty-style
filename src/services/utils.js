@@ -1,7 +1,7 @@
 import Swal from 'sweetalert2';
 import axios from 'axios';
 import environments from '../environments/environments';
-import { intlGlobal } from '../index.js';
+import { intlGlobal } from '../App.js';
 
 /**
  * Get user prefered locale
@@ -58,9 +58,6 @@ export const eraseCookie = (name) => {
  */
 export const postMan = async (func, method='GET', data = {}, language_code=true) =>{
     try{
-
-        console.log(func);
-        console.log(method);
         if(data && language_code)
         {
             if(data.data)

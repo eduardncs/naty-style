@@ -78,3 +78,14 @@
     transform: rotate(5deg) scale(1.1, 1.1);
     filter: brightness(110%);
 }
+
+.bg-gradient-warning {
+    background: linear-gradient(35deg,#fb6340,#fbb140)!important;
+}
+
+.btn-white {
+    color: #212529;
+    background-color: #fff;
+    border-color: #fff;
+    box-shadow: 0 4px 6px rgba(50,50,93,.11),0 1px 3px rgba(0,0,0,.08);
+}

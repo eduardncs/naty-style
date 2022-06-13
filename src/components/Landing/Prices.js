@@ -5,18 +5,14 @@ import bichon from './../../assets/img/dogs/bichon.jpg';
 import corgi from './../../assets/img/dogs/corgi.jpg';
 import rex from './../../assets/img/dogs/rex.jpg';
 import cat from './../../assets/img/dogs/cat.jpg';
+import preturi from './../../assets/img/marketing/Preturi.png';
 
-const Prices = () => {
-
-    return(
+export const Prices = () => {
+    return (
     <React.Fragment>
-        <section className="section section-lg bg-secondary " id="prices">
-            <Container>
-                <Row className="justify-content-center text-center">
-                <Col lg="8">
+        <section className="section section-lg background" id="prices">
+            <Container className="text-center pb-4 mb-5">
                     <h2 className="display-3"><FormattedMessage id="services.header" /></h2>
-                </Col>
-                </Row>
             </Container>
             <Container fluid>
                 <Row>
@@ -39,8 +35,6 @@ const Prices = () => {
                                     <div><FormattedMessage id="services.s5" /></div>
                                     <hr className="m-1" />
                                     <div><FormattedMessage id="services.s6" /></div>
-                                    <hr className='m-1' />
-                                    <div><strong>150 RON</strong></div>
                                 </div>
                             </div>
                         </div>
@@ -66,8 +60,6 @@ const Prices = () => {
                                     <div><FormattedMessage id="services.s6" /></div>
                                     <hr className='m-1' />
                                     <div><FormattedMessage id="services.s7" /></div>
-                                    <hr className='m-1' />
-                                    <div><strong>150 RON</strong></div>
                                 </div>
                             </div>
                         </div>
@@ -93,8 +85,6 @@ const Prices = () => {
                                     <div><FormattedMessage id="services.s6" /></div>
                                     <hr className='m-1' />
                                     <div><FormattedMessage id="services.s7" /></div>
-                                    <hr className='m-1' />
-                                    <div><strong>180 RON</strong></div>
                                 </div>
                             </div>
                         </div>
@@ -119,47 +109,55 @@ const Prices = () => {
                                     <hr className="m-1" />
                                     <div><FormattedMessage id="services.s6" /></div>
                                     <hr className='m-1' />
-                                <div><FormattedMessage id="services.s7" /></div>
-                                <hr className='m-1' />
-                                <div><strong>220 RON</strong></div>
+                                    <div><FormattedMessage id="services.s7" /></div>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </Col>
+                </Row>
+            </Container>       
+        </section>
+        <section className="section section-lg">
+            <Row className="d-flex justify-content-center align-items-center">
+                <Col md={12}><h2 className='text-center mb-5 pb-3'><FormattedMessage id="prices.header" /></h2></Col>
+                <Col md={8} className="d-flex justify-content-center align-items-center">
+                    <img src={preturi} className="img-fluid" loading='lazy' alt="preturile naty-style"/>
                 </Col>
             </Row>
-        </Container>       
-    </section>
-        <section className="section bg-secondary section-lg pt-0">
-        <Container>
-        <Card className="bg-gradient-warning shadow-lg border-0">
-            <div className="p-5">
-            <Row className="align-items-center">
-                <Col lg="8">
-                <h3 className="text-white">
-                    <FormattedMessage id="order-now" />!
-                </h3>
-                <p className="lead text-white mt-3">
-                <FormattedMessage id="order-lead" />
-                </p>
-                </Col>
-                <Col className="ml-lg-auto" lg="3">
-                <Button
-                    block
-                    className="btn-white"
-                    color="default"
-                    href="tel:0771077379"
-                    size="lg"
-                >
-                    <FormattedMessage id="order" /> <br/>
-                    0771 077 379
-                </Button>
-                </Col>
-            </Row>
-            </div>
-        </Card>
-        </Container>
-    </section>
-  </React.Fragment>
+        </section>
+
+        <section className="section section-lg background">
+            <Container>
+            <Card className="bg-gradient-warning shadow-lg border-0">
+                <div className="p-5">
+                <Row className="align-items-center">
+                    <Col lg="8">
+                    <h3 className="text-white">
+                        <FormattedMessage id="order-now" />!
+                    </h3>
+                    <p className="lead text-white mt-3">
+                    <FormattedMessage id="order-lead" />
+                    </p>
+                    </Col>
+                    <Col className="ml-lg-auto" lg="3">
+                    <Button
+                        block
+                        className="btn-white"
+                        color="default"
+                        href="tel:0771077379"
+                        size="lg"
+                    >
+                        <FormattedMessage id="order" /> <br/>
+                        0771 077 379
+                    </Button>
+                    </Col>
+                </Row>
+                </div>
+            </Card>
+            </Container>
+        </section>
+    </React.Fragment>
     )
 }
+
 export default Prices;

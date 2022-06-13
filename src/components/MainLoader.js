@@ -3,7 +3,7 @@ import "../assets/scss/loader.scss";
 
 export const MainLoader = () => {
     return(
-    <div id="loader" style={{zIndex:"99999"}}>
+    <div id="loader" className='loader'>
         <div className="sk-cube-grid">
             <div className="sk-cube sk-cube1"></div>
             <div className="sk-cube sk-cube2"></div>
